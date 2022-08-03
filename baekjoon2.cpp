@@ -1,3 +1,5 @@
+//백준 1193
+
 #include <iostream>
 using namespace std;
 int main() {
