@@ -1,18 +1,21 @@
-//2775
+//10870
 #include <iostream>
 using namespace std;
-int getNum(int, int);
+bool hansu(int);
 int main() {
-	int t, k, n;
-	cin >> t;
-	for (int i = 0; i < t; i++) {
-		cin >> k >> n;
-		cout << getNum(k, n) << "\n";
-	}
+	int n, cnt = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+		if (hansu(i+1)) cnt++;
+	cout << cnt << "\n";
 	return 0;
 }
-int getNum(int k, int n) {
-	if (k == 0) return n;
-	if (n == 1) return n;
-	return getNum(k, n - 1) + getNum(k - 1, n);
+bool hansu(int i) {
+	if (i / 100 != 0) {
+		int q = i / 100, w = (i / 10) % 10, e = i % 10;
+		if (q - w == w - e) return true;
+	 return false;
+	}
+	return true;
 }
+	
