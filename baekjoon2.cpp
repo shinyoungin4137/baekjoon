@@ -1,37 +1,22 @@
-//ë°±ì¤€ 1193
-
+//10250
 #include <iostream>
 using namespace std;
+void showData(int, int, int);
 int main() {
-	long long n;
-	cin >> n;
-	int step = 1,x=1,y=1,sum=1;
-	if (n == 1) {
-		cout << x << "/" << y << endl;
-		return 0;
+	int t, h, w, n,cnt=0;
+	cin >> t;
+	for (int i = 0; i < t; i++) {
+		cin >> h >> w >> n;
+		showData(h, w, n);
 	}
-	while (1) {
-		step++;
-		if (sum < n && n <=sum+step) {
-			if (step % 2 == 0) {
-				y = step;
-				for (int i = 1; i < n - sum; i++) {
-					x++;
-					y--;
-				}
-				break;
-			}
-			else {
-				x = step;
-				for (int i = 1; i < n - sum; i++) {
-					x--;
-					y++;
-				}
-				break;
-			}
-		}
-		sum += step;
-	}
-	cout << x << "/" << y << endl;
 	return 0;
+}
+void showData(int h, int w, int n) {
+	int cnt = 0;
+	for (int j = 0; j < w; j++)
+		for (int k = 0; k < h; k++) {
+			if (++cnt == n)
+				cout << (k + 1) * 100 + j + 1 << endl;
+		}//À§·ÎºÎÅÍ ¿Ã¶ó°¨
+
 }
